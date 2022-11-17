@@ -5,8 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class P02_login {
-    public WebElement user_goto_login_page() {
-        return Hooks.driver.findElement(By.className("className(\"ico-login\")"));
+    public WebElement login_Page() {
+
+        return Hooks.driver.findElement(By.cssSelector("a[class=\"ico-login\"]"));
     }
 
     public void enter_email_and_password(String email, String password) {
@@ -14,7 +15,7 @@ public class P02_login {
         Hooks.driver.findElement(By.id("Password")).sendKeys(password);
     }
 
-    public WebElement user_press_on_login_button() {
+    public WebElement login_btn() {
         return Hooks.driver.findElement(By.xpath
                 ("//button[@class=\"button-1 login-button\"]"));
     }
@@ -26,4 +27,13 @@ public class P02_login {
     public WebElement failed_alert() {
         return Hooks.driver.findElement(By.className("message-error"));
     }
+
+
+    public WebElement myAccount() {
+        return Hooks.driver.findElement(By.className("ico-account"));
+    }
 }
+
+
+
+

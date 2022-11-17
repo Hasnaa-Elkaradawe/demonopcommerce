@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import org.example.pages.P01_register;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class D01_registerStepDef {
@@ -64,14 +63,13 @@ public class D01_registerStepDef {
         register.user_clicks_on_register().click();
     }
     @And ("success message is displayed")
-    public void success_message()
+    public void success_message_is_displayed()
     {
         SoftAssert soft= new SoftAssert();
 
         String expected_result = "Your registration completed";
         String actual_result = register.sucess_Alert().getText();
         soft.assertTrue(actual_result.contains(expected_result),"wrong alert message");
-
         String expected_color = "rgba(76, 177, 124, 1)";
         String actual_color=register.sucess_Alert().getCssValue("color");
         soft.assertTrue(actual_color.contains(expected_color),"wrong color");

@@ -16,21 +16,20 @@ public class D03_currenciesStepDef {
     P03_homePage home = new P03_homePage();
 
 
-    @When("user select Euro option")
+    @When("user select Euro")
     public void user_select_euro() {
         Select select = new Select(home.user_select_euro_option());
         select.selectByVisibleText("Euro");
     }
 
-    @Then("euro symbol is displayed on all products")
-    public void euroSymbolIsDisplayedOnAllProducts() {
-        List<WebElement> currenies = home.euroSymbolIsDisplayedOnAllProducts();
-        String expected_curruncies = "€";
-
-        for (int x = 0; x < currenies.size(); x++) {
-            String actual_currency = currenies.get(x).getText();
+    @Then("Euro Symbol is shown on the products displayed in Home page")
+    public void Euro_is_shown_in_products() {
+        List<WebElement> currency = home.euroSymbol();
+        String expected_currency = "€";
+        for (int x = 0; x < currency.size(); x++) {
+            String actual_currency = currency.get(x).getText();
             System.out.println(actual_currency);
-            Assert.assertTrue(actual_currency.contains(expected_curruncies), "wrong Currency");
+            Assert.assertTrue(actual_currency.contains(expected_currency), "wrong Currency");
         }
     }
 }

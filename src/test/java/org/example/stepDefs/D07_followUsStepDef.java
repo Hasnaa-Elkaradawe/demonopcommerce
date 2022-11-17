@@ -14,12 +14,10 @@ public class D07_followUsStepDef {
 
     @When("user opens facebook link")
     public void click_on_social_media() throws InterruptedException {
-        follow.userOpensFacebookLink().click();
+        follow.facebookLink().click();
         Thread.sleep(2000);
         ArrayList<String> opened_tabs = new ArrayList<>(Hooks.driver.getWindowHandles());
         Hooks.driver.switchTo().window(opened_tabs.get(1));
-
-
         Thread.sleep(2000);
 
     }
@@ -28,7 +26,7 @@ public class D07_followUsStepDef {
     @When("user opens twitter link")
     public void userOpensTwitterLink() throws InterruptedException {
 
-        follow.userOpensTwitterLink().click();
+        follow.twitterLink().click();
         Thread.sleep(2000);
         ArrayList<String> opened_tabs = new ArrayList<>(Hooks.driver.getWindowHandles());
         Hooks.driver.switchTo().window(opened_tabs.get(1));
@@ -36,11 +34,19 @@ public class D07_followUsStepDef {
 
     }
 
+    @When("user opens rss link")
+    public void userOpensRssLink() throws InterruptedException {
+        follow.rssLink().click();
+        Thread.sleep(2000);
+        ArrayList<String> opened_tabs = new ArrayList<>(Hooks.driver.getWindowHandles());
+        Hooks.driver.switchTo().window(opened_tabs.get(0));
+        Thread.sleep(2000);
 
+    }
 
     @When("user opens youtube link")
     public void userOpensYoutubeLink() throws InterruptedException {
-        follow.userOpensYoutubeLink().click();
+        follow.youtubeLink().click();
         Thread.sleep(2000);
         ArrayList<String> opened_tabs = new ArrayList<>(Hooks.driver.getWindowHandles());
         Hooks.driver.switchTo().window(opened_tabs.get(1));
@@ -50,23 +56,12 @@ public class D07_followUsStepDef {
 
     @Then("{string} is opened in new tab")
     public void isOpenedInNewTab(String expected_url) {
-//        System.out.println(expected_url);
+
         Assert.assertEquals(Hooks.driver.getCurrentUrl(), expected_url);
-//        System.out.println(expected_url);
+
 
     }
 
-    @And("user could open and navigate to {string} tab")
-    public void userCouldOpenAndNavigateToHttpsTwitterComNopCommerceTab(String arg0) throws Throwable {
-        ArrayList<String> opened_tabs = new ArrayList<>(Hooks.driver.getWindowHandles());
-        Hooks.driver.switchTo().window(opened_tabs.get(0));
-        follow.userOpensTwitterLink().click();
-        Thread.sleep(2000);
-        Hooks.driver.switchTo().window(opened_tabs.get(1));
-        System.out.println("-----------------");
-        System.out.println(Hooks.driver.getCurrentUrl());
-        Hooks.driver.close();
 
-    }
 }
 

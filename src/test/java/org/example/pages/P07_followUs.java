@@ -5,21 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class P07_followUs {
-    public WebElement userOpensFacebookLink()
+    public WebElement facebookLink()
     {
 
         return Hooks.driver.findElement(By.cssSelector("a[href=\"http://www.facebook.com/nopCommerce\"]"));
     }
-    public WebElement userOpensTwitterLink() {
+    public WebElement twitterLink() {
         return Hooks.driver.findElement(By.cssSelector("a[href=\"https://twitter.com/nopCommerce\"]"));
     }
 
-    public WebElement userOpensRssLink() {
+    public WebElement rssLink() {
+
         return Hooks.driver.findElement(By.cssSelector("a[href=\"/news/rss/1\"]"));
     }
 
 
-    public WebElement userOpensYoutubeLink() {
+    public WebElement youtubeLink() {
         return Hooks.driver.findElement(By.cssSelector("a[href=\"http://www.youtube.com/user/nopCommerce\"]"));
     }
 }

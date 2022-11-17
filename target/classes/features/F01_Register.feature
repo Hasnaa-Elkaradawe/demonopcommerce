@@ -6,7 +6,7 @@ Feature: F01_Register | users could register with new accounts
     When user select gender type
     And user enter first name "automation" and last name "tester"
     And user enter date of birth
-    And user enter email "Hasnaa5@example.com" field
+    And user enter email "Hasnaa@example.com" field
     And user fills Password fields "P@ssw0rd" "P@ssw0rd"
     Then user clicks on register button
     And success message is displayed

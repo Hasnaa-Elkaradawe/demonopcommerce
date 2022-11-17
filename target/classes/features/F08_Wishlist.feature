@@ -2,10 +2,10 @@
 Feature: F08_Wishlist | users could add product to wishlist
 
   Scenario: user add product to Wishlist
-    Given user click on product to add to wishlist button
-    Then user could find success alert
+    Given user click on wishlist button on product
+    Then Success message appear that product added to wishlist
 
-  Scenario: user navigate to whishlist page
-    Given user click on product to add to wishlist button
-    When navigate to whishlist page
-    Then user could count product quantity
+  Scenario: user go to whishlist page
+    Given user click on wishlist button
+    And  user navigate to whishlist page
+    Then user get product quantity value

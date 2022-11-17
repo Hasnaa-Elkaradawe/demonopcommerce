@@ -12,65 +12,57 @@ public class P03_homePage {
         return Hooks.driver.findElement(By.id("customerCurrency"));
     }
 
-    public List<WebElement> euroSymbolIsDisplayedOnAllProducts() {
-//
+    public List<WebElement> euroSymbol() {
         return Hooks.driver.findElements(By.cssSelector("span[class=\"price actual-price\"]"));
     }
 
-    public WebElement click_on_search_field() {
+    public WebElement searchTextBox() {
         return Hooks.driver.findElement(By.id("small-searchterms"));
     }
 
-    public WebElement search_on_productname() {
-        return Hooks.driver.findElement(By.id("small-searchterms"));
-    }
 
     public void type_product_name(String productname) {
-        search_on_productname().sendKeys(productname);
-        search_on_productname().submit();
+        searchTextBox().sendKeys(productname);
+        searchTextBox().submit();
 
     }
-      public WebElement click_on_search_button(){
-      return Hooks.driver.findElement(By.xpath
-               ("//button[@class=\"button-1 search-box-button\"]"));
-   }
 
-    public List<WebElement> resultforAllProducts() {
 
-        return Hooks.driver.findElements(By.cssSelector("h2[class=\"product-title\"]"));
+    public List<WebElement> searchResult() {
+
+        return Hooks.driver.findElements(By.className("search-results"));
     }
 
-    public WebElement open_detail_page() {
+    public WebElement product_link() {
+
         return Hooks.driver.findElement(By.xpath("//h2[@class=\"product-title\"]//a"));
     }
 
-    public void detail_page() {
-        open_detail_page().click();
+    public void open_product_page() {
+        product_link().click();
     }
 
-    public WebElement get_SKU() {
-        return Hooks.driver.findElement(By.xpath("//span[@class=\"value\"]"));
+    public WebElement SKU() {
+
+        {
+            return Hooks.driver.findElement(By.cssSelector("div[class=\"sku\"]>span[class=\"value\"]"));
+
+        }
     }
 
-    public String get_current_url() {
-        return Hooks.driver.getCurrentUrl();
-    }
 
-    public List<WebElement> user_could_hover_on_randomCategory() {
+    public List<WebElement> categories() {
         return Hooks.driver.findElements(By.cssSelector("ul[class=\"top-menu notmobile\"]>li>a[href]"));
     }
 
-    public List<WebElement> user_could_select_random_subCategory(int category) {
-        category = category + 1;
-        return Hooks.driver.findElements(By.xpath("//ul[@class=\"top-menu notmobile\"]/li[" + category + "]/ul[@class=\"sublist first-level\"]/li"));
+    public WebElement subCategory() {
+
+        return Hooks.driver.findElement(By.xpath("/html/body/div[6]/div[2]/ul[1]/li[2]/ul/li[1]/a"));
     }
 
-    public WebElement get_page_title()
+    public  WebElement slider(String sliderNumber )
     {
-        return Hooks.driver.findElement(By.cssSelector("div[class=\"page-title\"] h1"));
+        return Hooks.driver.findElement(By.cssSelector("a.nivo-control:nth-child("+sliderNumber+")"));
     }
-    public  WebElement slider(String add_number)
-    {
-        return Hooks.driver.findElement(By.cssSelector("a[class=\"nivo-imageLink\"]:nth-child("+add_number+")"));
-    }
+
 }
